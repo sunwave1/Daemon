@@ -14,21 +14,21 @@ use App\Http\Controllers\Web\HomeController;
 |
 */
 
-Route::prefix('home')->group(function() { /* Only View `Apenas as views` */
-    Route::controller(HomeController::class)->group(function () {
-        Route::get('/', 'index')->name('home.index');
-        Route::get('/terms', 'terms')->name('home.terms');
-        Route::get('/highscores', 'highscores')->name('home.highscores');
-        Route::get('/download', 'download')->name('home.download');
-        Route::get('/guilds', 'guilds')->name('home.guilds');
+/* Only View `Apenas as views` */
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home.index');
+    Route::get('/terms', 'terms')->name('home.terms');
+    Route::get('/highscores', 'highscores')->name('home.highscores');
+    Route::get('/download', 'download')->name('home.download');
+    Route::get('/guilds', 'guilds')->name('home.guilds');
 
-        Route::middleware(['guest'])->group(function() {
-            Route::get('/register', 'register')->name('home.register');
-            Route::get('/login', 'login')->name('home.login');
-        });
+    Route::middleware(['guest'])->group(function() {
+        Route::get('/register', 'register')->name('home.register');
+        Route::get('/login', 'login')->name('home.login');
     });
 });
 
+/* Only View `Apenas as views` */
 Route::middleware(['auth'])->group(function () {
     Route::prefix('user')->group(function() {
         Route::controller(UserController::class)->group(function () {

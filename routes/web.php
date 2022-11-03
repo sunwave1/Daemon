@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Web\UserController;
+use App\Http\Controllers\Web\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('home')->group(function() {
+Route::prefix('home')->group(function() { /* Only View `Apenas as views` */
     Route::controller(HomeController::class)->group(function () {
         Route::get('/terms', 'terms')->name('home.terms');
         Route::get('/highscores', 'highscores')->name('home.highscores');

@@ -16,6 +16,7 @@ use App\Http\Controllers\Web\HomeController;
 
 Route::prefix('home')->group(function() { /* Only View `Apenas as views` */
     Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index')->name('home.index');
         Route::get('/terms', 'terms')->name('home.terms');
         Route::get('/highscores', 'highscores')->name('home.highscores');
         Route::get('/download', 'download')->name('home.download');

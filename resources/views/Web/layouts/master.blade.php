@@ -8,12 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('assets/web/master.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
 </head>
     <body class='body-content'>
         @include('web.core.header')
-        <main class='main-content'>
+        <main class='main-content mt-6 mb-8'>
             @yield('content')
         </main>
         @include('web.core.footer')
+        @livewireScripts
     </body>
 </html>

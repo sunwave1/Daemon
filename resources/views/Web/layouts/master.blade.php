@@ -10,14 +10,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
     <body class='body-content'>
-        <header class='header-content'>
-            @include('web.core.header')
-        </header>
+        @include('web.core.header')
         <main class='main-content'>
             @yield('content')
         </main>
-        <footer class='footer-content'>
-            @include('web.core.footer')
-        </footer>
+        @include('web.core.footer')
     </body>
 </html>

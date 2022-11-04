@@ -21,10 +21,22 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/highscores', 'highscores')->name('home.highscores');
     Route::get('/download', 'download')->name('home.download');
     Route::get('/guilds', 'guilds')->name('home.guilds');
+    Route::get('/recover', 'recover')->name('home.recover');
+    Route::get('/lastkills', 'lastkills')->name('home.lastkills');
+    Route::get('/onlines', 'onlines')->name('home.onlines');
+    Route::get('/spells', 'spells')->name('home.spells');
+    Route::get('/monsters', 'monsters')->name('home.monsters');
+    Route::get('/items', 'items')->name('home.items');
+    Route::get('/updates', 'updates')->name('home.updates');
+    Route::get('/banneds', 'banneds')->name('home.banneds');
 
     Route::middleware(['guest'])->group(function() {
         Route::get('/register', 'register')->name('home.register');
         Route::get('/login', 'login')->name('home.login');
+    });
+
+    Route::middleware(['auth'])->group(function() { /* Middleware for check is logged */
+        Route::get('/shop', 'shop')->name('home.shop');
     });
 });
 
@@ -41,5 +53,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('dashboard')->group(function() {
+
+});
+
+Route::prefix('wiki')->group(function() {
+
+});
+
+Route::prefix('forum')->group(function() {
 
 });

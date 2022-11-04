@@ -35,4 +35,40 @@ class HomeController extends Controller
     public function login() {
         return view('web.login');
     }
+
+    public function recover() {
+        return view('web.recover');
+    }
+
+    public function lastkills() {
+        return view('web.recover');
+    }
+
+    public function onlines() {
+        return view('web.recover');
+    }
+
+    public function spells() {
+        return view('web.recover');
+    }
+
+    public function monsters() {
+        return view('web.recover');
+    }
+
+    public function items() {
+        return view('web.recover');
+    }
+
+    public function updates() {
+        return view('web.recover');
+    }
+
+    public function banneds() {
+        return view('web.recover');
+    }
+
+    public function shop() {
+        return view('web.recover');
+    }
 }

@@ -12,8 +12,15 @@
 </head>
     <body class='body-content'>
         @include('web.core.header')
-        <main class='main-content mt-6 mb-8'>
-            @yield('content')
+        <main class='main-content mt-6 ml-2 mr-4 mb-8 bg-white dark:bg-gray-900 rounded-lg'>
+            <div class='grid grid-cols-[1fr_3fr]'>
+                <div class='side-bar border-r border-gray-300 dark:border-gray-600'>
+                    @include('web.core.sidebar')
+                </div>
+                <div class='content'>
+                    @yield('content')
+                </div>
+            </div>
         </main>
         @include('web.core.footer')
         @livewireScripts

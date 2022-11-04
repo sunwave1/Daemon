@@ -3,5 +3,5 @@
 @section('title', 'Login')
 
 @section('content')
-
+    <livewire:form-post-login/>
 @endsection

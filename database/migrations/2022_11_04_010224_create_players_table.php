@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Account;
 
 class CreatePlayersTable extends Migration
 {
@@ -17,7 +18,7 @@ class CreatePlayersTable extends Migration
             $table->id();
             $table->string('name')->unique()->nullable(false);
             $table->integer('group_id')->nullable(false)->default(1);
-            $table->integer('account_id')->default(0)->nullable(false);
+            $table->foreignIdFor(Account::class)->nullable(false);
             $table->integer('level')->default(1)->nullable(false);
             $table->integer('vocation')->default(0)->nullable(false);
             $table->integer('health')->default(150)->nullable(false);
@@ -28,6 +29,7 @@ class CreatePlayersTable extends Migration
             $table->integer('lookhead')->default(0)->nullable(false);
             $table->integer('looklegs')->default(0)->nullable(false);
             $table->integer('looktype')->default(0)->nullable(false);
+            $table->integer('lookaddons')->default(0)->nullable(false);
             $table->unsignedTinyInteger('direction')->default(2)->nullable(false);
             $table->integer('maglevel')->default(0)->nullable(false);
             $table->integer('mana')->default(0)->nullable(false);
@@ -66,7 +68,7 @@ class CreatePlayersTable extends Migration
             $table->unsignedBigInteger('skill_dist_tries')->default(10)->nullable(false);
             $table->unsignedBigInteger('skill_shielding_tries')->default(10)->nullable(false);
             $table->unsignedBigInteger('skill_fishing_tries')->default(10)->nullable(false);
-            //$table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            //$table->foreign('account_id')->on('accounts')->references('id')->onDelete('cascade');
         });
     }
 

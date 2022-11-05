@@ -50,7 +50,7 @@
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-sm text-gray-700 rounded-lg transition duration-75 hover:bg-gray-300 dark:hover:bg-gray-700 dark:text-gray-400 group">
+            <a href="{{ route('home.lastkills') }}" class="flex items-center p-2 text-sm text-gray-700 rounded-lg transition duration-75 hover:bg-gray-300 dark:hover:bg-gray-700 dark:text-gray-400 group">
                <span class="ml-3">Last Kills</span>
             </a>
          </li>

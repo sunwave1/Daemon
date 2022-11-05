@@ -92,5 +92,13 @@ class Player extends Model
         return $this->hasOne(PlayerDepotLockerItem::class);
     }
 
+    public function online(){
+        return $this->hasOne(PlayerOnline::class);
+    }
+
+    public function account() {
+        return $this->belongsTo(Account::class);
+    }
+
     public $timestamps = false;
 }

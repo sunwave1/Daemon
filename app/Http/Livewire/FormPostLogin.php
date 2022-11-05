@@ -18,15 +18,15 @@ class FormPostLogin extends Component
     }
 
     public function submit(){
-        if(Auth::attempt([
+        if(!Auth::attempt([
             'name' => $this->name,
             'password' => $this->password
         ])){
-            session()->regenerate();
-            redirect()->route('user.profile');
-        } else {
-            $this->addError('account', 'You credentials does not match. Please try again later');
+            return $this->addError('account', 'You credentials does not match. Please try again later');
         }
+
+        session()->regenerate();
+        return redirect()->route('user.profile');
     }
 
     public function render() {

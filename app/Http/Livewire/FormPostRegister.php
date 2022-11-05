@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Account;
+use App\Models\DaemonAccount;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -14,21 +15,25 @@ class FormPostRegister extends Component
 
     protected function rules() {
         return [
-            'name' => 'required|min:2|max:12|unique:accounts',
-            'email' => 'required|unique:accounts',
+            'name' => 'required|min:2|max:12|unique:daemon_accounts',
+            'email' => 'required|unique:daemon_accounts',
             'password' => 'required|min:5'
         ];
     }
 
     public function submit() {
         $this->validate();
-        Account::create([
-                'name' => $this->name,
-                'email' => $this->email,
-                'password' => Hash::make($this->password), //sha1($this->password),
-                'password_daemon' => Hash::make($this->password)
+
+        DaemonAccount::create([
+            'name' => $this->name,
+            'password' => Hash::make($this->password),
+            'email' => $this->email
         ]);
-        redirect()->route('home.login');
+        Account::create([
+            'name' => $this->name,
+            'password' => sha1($this->password)
+        ]);
+        return redirect()->route('home.login');
     }
 
     public function render() {

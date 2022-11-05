@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'accounts',
+        'passwords' => 'daemon_accounts',
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'accounts',
+            'provider' => 'daemon_accounts',
         ],
     ],
 
@@ -60,9 +60,9 @@ return [
     */
 
     'providers' => [
-        'accounts' => [
+        'daemon_accounts' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Account::class,
+            'model' => App\Models\DaemonAccount::class,
         ],
 
         // 'users' => [
@@ -87,8 +87,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'accounts',
+        'daemon_accounts' => [
+            'provider' => 'daemon_accounts',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

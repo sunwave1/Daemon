@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\PlayerDeath;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -41,11 +42,11 @@ class HomeController extends Controller
     }
 
     public function lastkills() {
-        return view('web.recover');
+        return view('web.lastkills');
     }
 
     public function onlines() {
-        return view('web.recover');
+        return view('web.online');
     }
 
     public function spells() {
@@ -69,6 +70,6 @@ class HomeController extends Controller
     }
 
     public function shop() {
-        return view('web.recover');
+        return view('web.shop');
     }
 }

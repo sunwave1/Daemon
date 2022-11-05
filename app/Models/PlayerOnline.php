@@ -5,16 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PlayerDeath extends Model
+class PlayerOnline extends Model
 {
     use HasFactory;
 
-    public function users(){
-        return $this->belongsTo(Player::class);
-    }
-
-    protected $dates = [
-        'time'
-    ];
+    protected $table = 'players_online';
     public $timestamps = false;
 }

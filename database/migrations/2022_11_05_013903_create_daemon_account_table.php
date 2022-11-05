@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountsTable extends Migration
+class CreateDaemonAccountTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('daemon_accounts', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('password');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +31,6 @@ class CreateAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('daemon_accounts');
     }
 }

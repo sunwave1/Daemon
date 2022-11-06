@@ -63,3 +63,5 @@ Route::prefix('wiki')->group(function() {
 Route::prefix('forum')->group(function() {
 
 });
+
+require(__DIR__ . '/auth.php'); /* Auth for Google and Facebook */

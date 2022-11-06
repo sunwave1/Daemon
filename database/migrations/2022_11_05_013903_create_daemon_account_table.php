@@ -15,7 +15,7 @@ class CreateDaemonAccountTable extends Migration
     {
         Schema::create('daemon_accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

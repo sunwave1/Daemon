@@ -13,7 +13,8 @@ class Account extends Model
 
     protected $fillable = [
         'name',
-        'password'
+        'password',
+        'daemon_account_id'
     ];
 
     protected $hidden = [
@@ -22,6 +23,10 @@ class Account extends Model
 
     public function characters(){
         return $this->hasMany(Player::class);
+    }
+
+    public function daemon_account() {
+        return $this->belongsTo(DaemonAccount::class);
     }
 
     public $timestamps = false;

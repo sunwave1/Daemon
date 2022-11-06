@@ -24,14 +24,15 @@ class FormPostRegister extends Component
     public function submit() {
         $this->validate();
 
-        DaemonAccount::create([
+        $daemon = DaemonAccount::create([
             'name' => $this->name,
             'password' => Hash::make($this->password),
             'email' => $this->email
         ]);
         Account::create([
             'name' => $this->name,
-            'password' => sha1($this->password)
+            'password' => sha1($this->password),
+            'daemon_account_id' => $daemon->id
         ]);
         return redirect()->route('home.login');
     }

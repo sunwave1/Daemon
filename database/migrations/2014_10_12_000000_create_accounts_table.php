@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\DaemonAccount;
 
 class CreateAccountsTable extends Migration
 {
@@ -17,6 +18,7 @@ class CreateAccountsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('password');
+            $table->foreignIdFor(DaemonAccount::class);
         });
     }
 
